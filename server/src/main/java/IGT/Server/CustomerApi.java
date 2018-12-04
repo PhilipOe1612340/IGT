@@ -23,9 +23,13 @@ public class CustomerApi {
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllCustomers() {
-        JSONArray response = new JSONArray();
-        Hibernate.getInstance().<Customer>getTable("Customer").forEach(customer -> response.put(customer.toJSON()));
-        return Responder.ok(response);
+        try {
+            JSONArray response = new JSONArray();
+            Hibernate.getInstance().<Customer>getTable("Customer").forEach(customer -> response.put(customer.toJSON()));
+            return Responder.ok(response);
+        } catch (Exception e) {
+            return Responder.exception(e);
+        }
     }
 
     /**

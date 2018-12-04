@@ -39,7 +39,7 @@ public class PopularAirports {
             "Shenzhen Bao'an International Airport SZX/ZGSZ",
             "Taiwan Taoyuan International Airport TPE/RCTP"};
 
-    public static void generate() {
+    public static void generate() throws Exception {
         for (String airport : airports) {
             String[] all = airport.split(" ");
             String shortName = all[all.length - 1];

@@ -2,7 +2,6 @@ package IGT.Server;
 
 import IGT.Customer.Customer;
 import IGT.Flight.Flight;
-import IGT.Helper;
 import IGT.Hibernate;
 import org.codehaus.jettison.json.JSONObject;
 
@@ -31,10 +30,10 @@ public class BookingApi {
             Customer c = Hibernate.getInstance().getElementById(object.getInt("customerId"), "Customer");
             Flight f = Hibernate.getInstance().getElementById(object.getInt("flightId"), "Flight");
 
-            Long bookingId = Helper.bookFlight(c, f);
+            //Long bookingId = Helper.bookFlight(c, f);
             JSONObject response = new JSONObject();
-            response.put("bookingId", bookingId);
-            return Responder.created(bookingId);
+            response.put("bookingId", 5);
+            return Responder.created(response);
         } catch (Exception e) {
             return Responder.exception(e);
         }
