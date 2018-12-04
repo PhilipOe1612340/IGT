@@ -23,7 +23,6 @@ public class Main {
         server.setHandler(ctx);
 
         ServletHolder serHol = ctx.addServlet(ServletContainer.class, "/api/*");
-        serHol.setInitOrder(1);
         serHol.setInitParameter("jersey.config.server.provider.packages", "IGT/Server");
         PopularAirports.generate();
         try {

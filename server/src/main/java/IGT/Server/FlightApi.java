@@ -23,14 +23,15 @@ public class FlightApi {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createFlight(String json) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        Date start, arrival;
+        Date start;
+        Long duration;
         JSONArray airportsList;
         int miles;
         try {
             JSONObject object = new JSONObject(json);
             String startString = object.getString("startTime");
             start = df.parse(startString);
-            arrival = df.parse(object.getString("arrivalTime"));
+            duration = object.getLong("duration");
             airportsList = object.getJSONArray("airportsList");
             miles = object.getInt("miles");
             if (miles < 1 || airportsList.length() < 2) {
@@ -46,7 +47,7 @@ public class FlightApi {
                 newFlight.addFlightSegment(nextSegment);
             }
             newFlight.setStartTime(start);
-            newFlight.setArrivalTime(arrival);
+            newFlight.setDuration(duration);
             newFlight.setMiles(miles);
             Hibernate.getInstance().save(newFlight);
             return Responder.created(newFlight.toJSON());
@@ -55,6 +56,7 @@ public class FlightApi {
             return Responder.exception(e);
         }
     }
+
 
     @OPTIONS
     @Path("/new")

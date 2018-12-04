@@ -20,7 +20,7 @@ public class Flight implements IClassID {
 
     private Date startTime;
 
-    private Date arrivalTime;
+    private long duration;
 
     private int miles;
 
@@ -48,16 +48,23 @@ public class Flight implements IClassID {
         this.startTime = startTime;
     }
 
-    public Date getArrivalTime() {
-        return arrivalTime;
-    }
-
     public Date getStartTime() {
         return startTime;
     }
 
-    public void setArrivalTime(Date arrivalTime) {
-        this.arrivalTime = arrivalTime;
+    public void setDuration(long duration) {
+        this.duration = duration;
+    }
+
+    public long getDuration() {
+        return duration;
+    }
+
+    public Date getArrivalTime() {
+        Date arrival = (Date) startTime.clone();
+        arrival.setTime(startTime.getTime() + duration);
+        System.out.println(startTime.toString() + "+" + duration + "=" + arrival.toString());
+        return arrival;
     }
 
     public int getSeatsEconomyClass() {
