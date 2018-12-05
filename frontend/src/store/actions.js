@@ -9,7 +9,7 @@ export const createCustomer = async ({ dispatch, getters, commit }, userConfig) 
     dispatch("allCustomers");
 };
 export const deleteCustomer = async ({ dispatch, getters }, customerId) => {
-    const response = await Axios.delete(getters.getURL + "/customer/" + customerId);
+    await Axios.delete(getters.getURL + "/customer/" + customerId);
     dispatch("allCustomers");
 };
 export const setCustomer = async ({ commit, getters }, userId) => {
@@ -43,8 +43,8 @@ export const deleteAirport = async ({ dispatch, getters }, id) => {
 /* 
     Flights
 */
-export const newFlight = async ({ getters }) => {
-    await Axios.get(getters.getURL + `/flight/new`);
+export const newFlight = async ({ getters }, data) => {
+    await Axios.post(getters.getURL + `/flight/new`, data);
 };
 export const deleteFlight = async ({ getters }, id) => {
     await Axios.delete(getters.getURL + `/flight/` + (id || '5'));
@@ -59,10 +59,10 @@ export const bookFlight = async ({ dispatch, getters }, data) => {
     await Axios.post(getters.getURL + `/booking/new`, data);
     dispatch("getBookings", getters.userId);
 };
-export const getBookings = async ({ getters }, id) => {
+export const getBookings = async ({ commit, getters }, id) => {
     commit("bookings", (await Axios.get(getters.getURL + `/booking/customer/` + (id || '5')).data));
 };
-export const cancelBooking = async ({dispatch, getters }, id) => {
+export const cancelBooking = async ({ dispatch, getters }, id) => {
     await Axios.delete(getters.getURL + `/booking/` + (id || '5'));
     dispatch("getBookings", getters.userId);
 };
@@ -70,6 +70,6 @@ export const cancelBooking = async ({dispatch, getters }, id) => {
 /* 
     administration
 */
-export const clear = async () => {
+export const clear = async ({ getters }) => {
     await Axios.get(getters.getURL + `/dropdb`);
 };

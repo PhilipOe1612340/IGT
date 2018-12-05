@@ -15,59 +15,69 @@
               <v-autocomplete
                 class="airport"
                 v-model="start"
-                :items="airports"
+                :items="$store.getters.airports"
                 item-text="name"
                 label="Select start"
                 no-data-text="Airport not found"
-                persistent-hint />
+                persistent-hint
+              />
             </v-flex>
             <v-flex xs12 sm6 pl-2>
               <v-autocomplete
                 class="airport"
                 v-model="goal"
-                :items="airports"
+                :items="$store.getters.airports"
                 item-text="name"
                 label="Select goal"
                 no-data-text="Airport not found"
-                persistent-hint/>
+                persistent-hint
+              />
+            </v-flex>
+            <v-flex xs12 sm6 md6 pr-2>
+              <v-menu
+                v-model="menuDate"
+                :return-value.sync="date"
+                lazy
+                transition="scale-transition"
+                offset-y
+                full-width
+                min-width="290px"
+              >
+                <v-text-field
+                  slot="activator"
+                  v-model="date"
+                  label="Date"
+                  prepend-icon="event"
+                  readonly
+                ></v-text-field>
+                <v-date-picker v-model="date" no-title scrollable></v-date-picker>
+              </v-menu>
+            </v-flex>
+            <v-flex xs12 sm6 md6 pl-2>
+              <v-menu
+                v-model="menuTime"
+                :close-on-content-click="false"
+                transition="scale-transition"
+                offset-y
+                full-width
+                min-width="290px"
+              >
+                <v-text-field slot="activator" v-model="time" label="Time" readonly></v-text-field>
+                <v-time-picker v-model="time" format="24hr"></v-time-picker>
+              </v-menu>
+            </v-flex>
+            <v-flex xs6 pr-2>
+              <v-text-field v-model="miles" type="number" label="Miles"/>
+            </v-flex>
+            <v-flex xs6 pl-2>
+              <v-text-field v-model="duration" type="number" label="Duration (in minutes)"/>
             </v-flex>
           </v-layout>
-          <v-text-field v-model="miles" type="number" label="Miles"/>
-          <v-container>
-            <v-layout row wrap>
-              <v-flex xs12 sm6 md6>
-                <v-menu
-                  ref="menu"
-                  v-model="menu"
-                  :nudge-right="40"
-                  :return-value.sync="date"
-                  lazy
-                  transition="scale-transition"
-                  offset-y
-                  full-width
-                  min-width="290px"
-                >
-                  <v-text-field
-                    slot="activator"
-                    v-model="date"
-                    label="Picker in menu"
-                    prepend-icon="event"
-                    readonly
-                  ></v-text-field>
-                  <v-date-picker v-model="date" no-title scrollable>
-                    <v-spacer></v-spacer>
-                    <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
-                    <v-btn flat color="primary" @click="$refs.menu.save(date)">OK</v-btn>
-                  </v-date-picker>
-                </v-menu>
-              </v-flex>
-
-              <v-flex xs12 sm6 md6>
-                <v-text-field label="Regular" placeholder="Placeholder"></v-text-field>
-              </v-flex>
-            </v-layout>
-          </v-container>
         </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn flat color="orange" @click="create()">create</v-btn>
+        </v-card-actions>
       </v-card>
     </v-dialog>
   </div>
@@ -78,17 +88,27 @@ export default {
   data: () => ({
     dialog: false,
     date: new Date().toISOString().substr(0, 10),
-    menu: false,
+    time: null,
+    menuDate: false,
+    menuTime: false,
     miles: 100,
+    duration: 60,
     start: null,
     goal: null
   }),
-  computed: {
-    airports() {
-      const airports = this.$store.getters.airports;
-      return airports; //.map(airport => `${airport.name} (${airport.short})`)
+  methods: {
+    create() {
+      this.$store.dispatch("newFlight", {
+        miles: this.miles,
+        date: this.date,
+        time: this.time,
+        duration: this.duration,
+        airportsList: [this.start.airportId, this.goal.airportId]
+      });
+      this.dialog = false;
     }
-  }
+  },
+
 };
 </script>
 

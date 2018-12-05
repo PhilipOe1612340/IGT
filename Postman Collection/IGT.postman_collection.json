@@ -1,638 +1,701 @@
 {
-	"id": "e307e235-250a-4c70-b91b-205898c56795",
-	"name": "IGT",
-	"description": "",
-	"auth": null,
-	"events": null,
-	"variables": [],
-	"order": [
-		"2e0c232c-7540-4bb2-9a5e-ebf4fa7debdc"
-	],
-	"folders_order": [
-		"6dcf087f-ca56-44b1-b260-3cb7164f4268",
-		"c35eeac4-88cf-4f5d-b508-cdab37eb1722"
-	],
-	"folders": [
+	"info": {
+		"_postman_id": "e307e235-250a-4c70-b91b-205898c56795",
+		"name": "IGT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "6dcf087f-ca56-44b1-b260-3cb7164f4268",
 			"name": "Customer",
-			"description": "",
-			"auth": null,
-			"events": null,
-			"collection": "e307e235-250a-4c70-b91b-205898c56795",
-			"folder": null,
-			"order": [
-				"42359d05-b411-4b99-992f-015fcb2298b3",
-				"c083f50d-7114-4b96-bf31-963b54ee2a6e",
-				"f026267c-e82d-4484-a025-ac59fd9cc1cb",
-				"d1c9c5b1-8f6b-48ea-894e-f8af531320e2",
-				"29f260a1-251d-4a7d-b752-54c2b499d4f0"
-			],
-			"folders_order": []
+			"item": [
+				{
+					"name": "get all customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/customer/all",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"customer",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all customers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{server}}:{{MySQL}}/api/customer/all",
+									"host": [
+										"{{server}}"
+									],
+									"port": "{{MySQL}}",
+									"path": [
+										"api",
+										"customer",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n        \"customerId\": 5,\n        \"name\": \"Max Musterman\",\n        \"phones\": [\n            \"00491234567\",\n            \"0038839284\"\n        ]\n    },\n    {\n        \"customerId\": 6,\n        \"name\": \"Max Musterman\",\n        \"phones\": [\n            \"00491234567\",\n            \"0038839284\"\n        ]\n    },\n    {\n        \"customerId\": 7,\n        \"name\": \"Max Musterman\",\n        \"phones\": [\n            \"00491234567\",\n            \"0038839284\"\n        ]\n    },\n    {\n        \"customerId\": 8,\n        \"name\": \"Max Musterman\",\n        \"phones\": [\n            \"00491234567\",\n            \"0038839284\"\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get customer by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/customer/39",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"customer",
+								"39"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get customer by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{server}}:{{MySQL}}/api/customer/4",
+									"host": [
+										"{{server}}"
+									],
+									"port": "{{MySQL}}",
+									"path": [
+										"api",
+										"customer",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "    {\r\n      \"customerId\": 5,\r\n      \"name\" : \"Max Musterman\",\r\n      \"phones\": [\"00491234567\", \"0038839284\"]\r\n    }"
+						}
+					]
+				},
+				{
+					"name": "delete customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/customer/4",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"customer",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete customer",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{server}}:{{MySQL}}/api/customer/4",
+									"host": [
+										"{{server}}"
+									],
+									"port": "{{MySQL}}",
+									"path": [
+										"api",
+										"customer",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n\t\"message\":\"okay\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testUpdaaate\",\n\t\"phones\": [\"1234321\"],\n\t\"address\": \"not at home\",\n\t\"flownMiles\": 10000\n}"
+						},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/customer/37",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"customer",
+								"37"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update customer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"testUpdaaate\",\n  \"phones\": [\"1234321\"]\n}"
+								},
+								"url": {
+									"raw": "{{server}}:{{MySQL}}/api/customer/1",
+									"host": [
+										"{{server}}"
+									],
+									"port": "{{MySQL}}",
+									"path": [
+										"api",
+										"customer",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n    \"customers\":\r\n    [\r\n      {\r\n        \"customerId\": 5,\r\n        \"name\" : \"Max Musterman\",\r\n        \"phones\": [\"00491234567\", \"0038839284\"]\r\n      },\r\n      {\r\n        \"customerId\": 6,\r\n        \"name\" : \"Max Musterman\",\r\n        \"phones\": [\"00491234567\", \"0038839284\"]\r\n      },\r\n      {\r\n        \"customerId\": 7,\r\n        \"name\" : \"Max Musterman\",\r\n        \"phones\": [\"00491234567\", \"0038839284\"]\r\n      },\r\n      {\r\n        \"customerId\": 8,\r\n        \"name\" : \"Max Musterman\",\r\n        \"phones\": [\"00491234567\", \"0038839284\"]\r\n      }\r\n    ]\r\n  }"
+						}
+					]
+				},
+				{
+					"name": "new customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"User\",\n\t\"address\": \"at home\",\n\t\"phones\": [\"1234\", \"4321\"]\n}"
+						},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/customer/new",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"customer",
+								"new"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "new customer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"test\",\n  \"phones\": [\"1234\", \"4321\"]\n}"
+								},
+								"url": {
+									"raw": "{{server}}:{{MySQL}}/api/customer/new",
+									"host": [
+										"{{server}}"
+									],
+									"port": "{{MySQL}}",
+									"path": [
+										"api",
+										"customer",
+										"new"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "    {\r\n      \"customerId\": 5,\r\n      \"name\" : \"Max Musterman\",\r\n      \"phones\": [\"00491234567\", \"0038839284\"]\r\n    }"
+						}
+					]
+				}
+			]
 		},
 		{
-			"id": "c35eeac4-88cf-4f5d-b508-cdab37eb1722",
 			"name": "Flights",
-			"description": "",
-			"auth": null,
-			"events": null,
-			"collection": "e307e235-250a-4c70-b91b-205898c56795",
-			"folder": null,
-			"order": [
-				"ad060056-091b-43cd-8944-1be30247d674",
-				"cb86eb60-4f23-42c5-8da5-57b70fefc341",
-				"1c56374c-a5a7-4958-837a-958f86224476",
-				"0cded9d6-5934-4a7d-8a05-248deec128b1",
-				"71d402f3-4c0e-4a89-902b-df85872e8d6b",
-				"9d38bde5-2186-44f8-89d9-e9cee0102c82",
-				"fe4c7a2f-dd25-4836-aebd-1df827fba181"
-			],
-			"folders_order": []
-		}
-	],
-	"requests": [
-		{
-			"id": "0cded9d6-5934-4a7d-8a05-248deec128b1",
-			"name": "delete a flight",
-			"url": "{{server}}:{{MySQL}}/api/flight/5",
-			"description": "",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
+			"item": [
 				{
-					"description": "",
-					"key": "Content-Type",
-					"name": "Content-Type",
-					"type": "text",
-					"value": "application/json"
-				}
-			],
-			"method": "DELETE",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "c35eeac4-88cf-4f5d-b508-cdab37eb1722",
-			"responses": [
+					"name": "all airports",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/airport/all",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"airport",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all airports",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{server}}:{{MySQL}}/api/airport/all",
+									"host": [
+										"{{server}}"
+									],
+									"port": "{{MySQL}}",
+									"path": [
+										"api",
+										"airport",
+										"all"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"airportId\": 5,\n        \"name\": \"Some Airport\",\n        \"short\": \"SAP\"\n    },\n    {\n        \"airportId\": 7,\n        \"name\": \"Some Airport\",\n        \"short\": \"SAP\"\n    },\n    {\n        \"airportId\": 8,\n        \"name\": \"Some Airport\",\n        \"short\": \"SAP\"\n    },\n    {\n        \"airportId\": 6,\n        \"name\": \"Another Airport\",\n        \"short\": \"AAP\"\n    }\n]"
+						}
+					]
+				},
 				{
-					"id": "0f420ee1-70e6-4392-acae-8b3b687ff447",
-					"name": "delete a flight",
-					"status": null,
-					"mime": null,
-					"language": "json",
-					"text": "{\n    \"customerId\": 5,\n    \"name\": \"Max Musterman\",\n    \"phones\": [\n        \"00491234567\",\n        \"0038839284\"\n    ]\n}",
-					"responseCode": null,
-					"requestObject": {
-						"data": "{\n    \"miles\": 500,\n    \"startTime\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n    \"arrivalTime\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n    \"airportsList\": [\n        5,\n        6,\n        8\n    ]\n}",
-						"dataMode": "raw",
-						"headerData": [
+					"name": "all flights in date range",
+					"request": {
+						"method": "POST",
+						"header": [
 							{
-								"description": "",
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"startDate\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n    \"arrivalDate\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n    \"range\": \"1\",\n    \"startAirport\": 5,\n    \"arrivalAirport\": 6\n}"
+						},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/flight/filter",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"flight",
+								"filter"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all flights in date range",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"startDate\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n    \"arrivalDate\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n    \"range\": \"1\",\n    \"startAirport\": 5,\n    \"arrivalAirport\": 6\n}"
+								},
+								"url": {
+									"raw": "{{server}}:{{MySQL}}/api/flight/filter",
+									"host": [
+										"{{server}}"
+									],
+									"port": "{{MySQL}}",
+									"path": [
+										"api",
+										"flight",
+										"filter"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"flightId\": 5,\n        \"miles\": 500,\n        \"date\": \"2018-12-06\",\n        \"time\":\"12:30\",\n        \"duration\": 500,\n        \"airportsList\": [\n            5,\n            6,\n            8\n        ]\n    },\n    {\n        \"flightId\": 5,\n        \"miles\": 500,\n        \"date\": \"2018-12-06\",\n        \"time\":\"12:30\",\n        \"duration\": 500,\n        \"airportsList\": [\n            5,\n            6,\n            8\n        ]\n    },\n    {\n        \"flightId\": 5,\n        \"miles\": 500,\n        \"date\": \"2018-12-06\",\n        \"time\":\"12:30\",\n        \"duration\": 500,\n        \"airportsList\": [\n            5,\n            6,\n            8\n        ]\n    },\n    {\n        \"flightId\": 6,\n        \"miles\": 500,\n        \"startTime\": \"2018-12-06\",\n        \"time\":\"12:30\",\n        \"duration\": 500,\n        \"airportsList\": [\n            5,\n            6,\n            8\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "create new flight",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"miles\": 500,\n    \"date\": \"2018-12-06\",\n    \"time\": \"12:30\",\n    \"duration\": 500,\n    \"airportsList\": [\n        5,\n        6,\n        8,\n        9,\n        20\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/flight/new",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"flight",
+								"new"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all airports Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"miles\": 500,\n    \"startTime\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n    \"arrivalTime\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n    \"airportsList\": [\n        5,\n        6,\n        8\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{server}}:{{MySQL}}/api/flight/new",
+									"host": [
+										"{{server}}"
+									],
+									"port": "{{MySQL}}",
+									"path": [
+										"api",
+										"flight",
+										"new"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"flightId\": 5,\r\n    \"miles\": 500,\r\n    \"startTime\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\r\n    \"duration\": 500,\r\n    \"airportsList\": [5, 6, 8]\r\n}"
+						}
+					]
+				},
+				{
+					"name": "book flight",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerId\": 37,\n    \"flightId\": 36\n}"
+						},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/booking/new",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"booking",
+								"new"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "book flight",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customerId\": 5,\n    \"flightId\": 6\n}"
+								},
+								"url": {
+									"raw": "{{server}}:{{MySQL}}/api/booking/new",
+									"host": [
+										"{{server}}"
+									],
+									"port": "{{MySQL}}",
+									"path": [
+										"api",
+										"booking",
+										"new"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"bookingId\": 5\n}"
+						}
+					]
+				},
+				{
+					"name": "cancel flight booking",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/booking/5",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"booking",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a flight",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
 								"key": "Content-Type",
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"miles\": 500,\n    \"startTime\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n    \"arrivalTime\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n    \"airportsList\": [\n        5,\n        6,\n        8\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/flight/5",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"flight",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete a flight",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"miles\": 500,\n    \"startTime\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n    \"arrivalTime\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n    \"airportsList\": [\n        5,\n        6,\n        8\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{server}}:{{MySQL}}/api/customer/5",
+									"host": [
+										"{{server}}"
+									],
+									"port": "{{MySQL}}",
+									"path": [
+										"api",
+										"customer",
+										"5"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"customerId\": 5,\n    \"name\": \"Max Musterman\",\n    \"phones\": [\n        \"00491234567\",\n        \"0038839284\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "delete airport",
+					"request": {
 						"method": "DELETE",
-						"pathVariableData": [],
-						"queryParams": [],
-						"url": "{{server}}:{{MySQL}}/api/customer/5"
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}:{{MySQL}}/api/airport/5",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{MySQL}}",
+							"path": [
+								"api",
+								"airport",
+								"5"
+							]
+						}
 					},
-					"headers": null,
-					"cookies": null,
-					"request": "0cded9d6-5934-4a7d-8a05-248deec128b1",
-					"collection": "e307e235-250a-4c70-b91b-205898c56795"
+					"response": []
 				}
-			],
-			"rawModeData": "{\n    \"miles\": 500,\n    \"startTime\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n    \"arrivalTime\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n    \"airportsList\": [\n        5,\n        6,\n        8\n    ]\n}",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
+			]
 		},
 		{
-			"id": "1c56374c-a5a7-4958-837a-958f86224476",
-			"name": "create new flight",
-			"url": "{{server}}:{{MySQL}}/api/flight/new",
-			"description": "",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"name": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"type": "text"
-				}
-			],
-			"method": "POST",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "c35eeac4-88cf-4f5d-b508-cdab37eb1722",
-			"responses": [
-				{
-					"id": "60d65886-bfc3-45c7-a540-ccaaf4490d3f",
-					"name": "all airports Copy",
-					"status": null,
-					"mime": null,
-					"language": "json",
-					"text": "{\r\n    \"flightId\": 5,\r\n    \"miles\": 500,\r\n    \"startTime\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\r\n    \"arrivalTime\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\r\n    \"airportsList\": [5, 6, 8]\r\n}",
-					"responseCode": null,
-					"requestObject": {
-						"data": "{\n    \"miles\": 500,\n    \"startTime\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n    \"arrivalTime\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n    \"airportsList\": [\n        5,\n        6,\n        8\n    ]\n}",
-						"dataMode": "raw",
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"type": "text"
-							}
-						],
-						"method": "POST",
-						"pathVariableData": [],
-						"queryParams": [],
-						"url": "{{server}}:{{MySQL}}/api/flight/new"
-					},
-					"headers": null,
-					"cookies": null,
-					"request": "1c56374c-a5a7-4958-837a-958f86224476",
-					"collection": "e307e235-250a-4c70-b91b-205898c56795"
-				}
-			],
-			"rawModeData": "{\n    \"miles\": 500,\n    \"startTime\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n    \"arrivalTime\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n    \"airportsList\": [\n        5,\n        6,\n        8\n    ]\n}",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "29f260a1-251d-4a7d-b752-54c2b499d4f0",
-			"name": "new customer",
-			"url": "{{server}}:{{MySQL}}/api/customer/new",
-			"description": "",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"name": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"type": "text"
-				}
-			],
-			"method": "POST",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "6dcf087f-ca56-44b1-b260-3cb7164f4268",
-			"responses": [
-				{
-					"id": "dd9fe945-5851-4ee4-9588-5d2ccc9bc92d",
-					"name": "new customer",
-					"status": "",
-					"mime": "",
-					"language": "json",
-					"text": "    {\r\n      \"customerId\": 5,\r\n      \"name\" : \"Max Musterman\",\r\n      \"phones\": [\"00491234567\", \"0038839284\"]\r\n    }",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
-					},
-					"requestObject": {
-						"url": "{{server}}:{{MySQL}}/api/customer/new",
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"data": "{\n  \"name\": \"test\",\n  \"phones\": [\"1234\", \"4321\"]\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					},
-					"headers": [],
-					"cookies": [],
-					"request": "29f260a1-251d-4a7d-b752-54c2b499d4f0",
-					"collection": "e307e235-250a-4c70-b91b-205898c56795"
-				}
-			],
-			"rawModeData": "{\n\t\"name\": \"User\",\n\t\"address\": \"at home\",\n\t\"phones\": [\"1234\", \"4321\"]\n}",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "2e0c232c-7540-4bb2-9a5e-ebf4fa7debdc",
 			"name": "clear all",
-			"url": "{{server}}:{{MySQL}}/api/dropdb",
-			"description": "",
-			"data": null,
-			"dataMode": null,
-			"headerData": [],
-			"method": "GET",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": null,
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "42359d05-b411-4b99-992f-015fcb2298b3",
-			"name": "get all customers",
-			"url": "{{server}}:{{MySQL}}/api/customer/all",
-			"description": "",
-			"data": null,
-			"dataMode": null,
-			"headerData": [],
-			"method": "GET",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "6dcf087f-ca56-44b1-b260-3cb7164f4268",
-			"responses": [
-				{
-					"id": "43f2373e-dcd2-4d72-8644-563edda1166b",
-					"name": "get all customers",
-					"status": "",
-					"mime": "",
-					"language": "json",
-					"text": "[\n    {\n        \"customerId\": 5,\n        \"name\": \"Max Musterman\",\n        \"phones\": [\n            \"00491234567\",\n            \"0038839284\"\n        ]\n    },\n    {\n        \"customerId\": 6,\n        \"name\": \"Max Musterman\",\n        \"phones\": [\n            \"00491234567\",\n            \"0038839284\"\n        ]\n    },\n    {\n        \"customerId\": 7,\n        \"name\": \"Max Musterman\",\n        \"phones\": [\n            \"00491234567\",\n            \"0038839284\"\n        ]\n    },\n    {\n        \"customerId\": 8,\n        \"name\": \"Max Musterman\",\n        \"phones\": [\n            \"00491234567\",\n            \"0038839284\"\n        ]\n    }\n]",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
-					},
-					"requestObject": {
-						"data": null,
-						"dataMode": null,
-						"headerData": [],
-						"method": "GET",
-						"pathVariableData": [],
-						"queryParams": [],
-						"url": "{{server}}:{{MySQL}}/api/customer/all"
-					},
-					"headers": [],
-					"cookies": [],
-					"request": "42359d05-b411-4b99-992f-015fcb2298b3",
-					"collection": "e307e235-250a-4c70-b91b-205898c56795"
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{server}}:{{MySQL}}/api/dropdb",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{MySQL}}",
+					"path": [
+						"api",
+						"dropdb"
+					]
 				}
-			],
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "71d402f3-4c0e-4a89-902b-df85872e8d6b",
-			"name": "all flights in date range",
-			"url": "{{server}}:{{MySQL}}/api/flight/filter",
-			"description": "",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"name": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"type": "text"
-				}
-			],
-			"method": "POST",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "c35eeac4-88cf-4f5d-b508-cdab37eb1722",
-			"responses": [
-				{
-					"id": "167bb48f-bef4-40de-8e57-d58e0015116e",
-					"name": "all flights in date range",
-					"status": null,
-					"mime": null,
-					"language": "json",
-					"text": "[\n    {\n        \"flightId\": 5,\n        \"miles\": 500,\n        \"startTime\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n        \"arrivalTime\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n        \"airportsList\": [\n            5,\n            6,\n            8\n        ]\n    },\n    {\n        \"flightId\": 6,\n        \"miles\": 500,\n        \"startTime\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n        \"arrivalTime\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n        \"airportsList\": [\n            5,\n            6,\n            8\n        ]\n    }\n]",
-					"responseCode": null,
-					"requestObject": {
-						"data": "{\n    \"startDate\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n    \"arrivalDate\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n    \"range\": \"1\",\n    \"startAirport\": 5,\n    \"arrivalAirport\": 6\n}",
-						"dataMode": "raw",
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"type": "text"
-							}
-						],
-						"method": "POST",
-						"pathVariableData": [],
-						"queryParams": [],
-						"url": "{{server}}:{{MySQL}}/api/flight/filter"
-					},
-					"headers": null,
-					"cookies": null,
-					"request": "71d402f3-4c0e-4a89-902b-df85872e8d6b",
-					"collection": "e307e235-250a-4c70-b91b-205898c56795"
-				}
-			],
-			"rawModeData": "{\n    \"startDate\": \"Tue Nov 13 2018 23:32:48 GMT+0100\",\n    \"arrivalDate\": \"Wen Nov 14 2018 23:32:48 GMT+0500\",\n    \"range\": \"1\",\n    \"startAirport\": 5,\n    \"arrivalAirport\": 6\n}",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "9d38bde5-2186-44f8-89d9-e9cee0102c82",
-			"name": "book flight",
-			"url": "{{server}}:{{MySQL}}/api/booking/new",
-			"description": "",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"name": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"type": "text"
-				}
-			],
-			"method": "POST",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "c35eeac4-88cf-4f5d-b508-cdab37eb1722",
-			"responses": [
-				{
-					"id": "a9f2d4c3-ce10-4a4e-97b3-14987e59b7ed",
-					"name": "book flight",
-					"status": null,
-					"mime": null,
-					"language": "json",
-					"text": "{\n    \"bookingId\": 5\n}",
-					"responseCode": null,
-					"requestObject": {
-						"data": "{\n    \"customerId\": 5,\n    \"flightId\": 6\n}",
-						"dataMode": "raw",
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"description": "",
-								"type": "text"
-							}
-						],
-						"method": "POST",
-						"pathVariableData": [],
-						"queryParams": [],
-						"url": "{{server}}:{{MySQL}}/api/booking/new"
-					},
-					"headers": null,
-					"cookies": null,
-					"request": "9d38bde5-2186-44f8-89d9-e9cee0102c82",
-					"collection": "e307e235-250a-4c70-b91b-205898c56795"
-				}
-			],
-			"rawModeData": "{\n    \"customerId\": 5,\n    \"flightId\": 6\n}",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "ad060056-091b-43cd-8944-1be30247d674",
-			"name": "all airports",
-			"url": "{{server}}:{{MySQL}}/api/airport/all",
-			"description": "",
-			"data": null,
-			"dataMode": null,
-			"headerData": [],
-			"method": "GET",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "c35eeac4-88cf-4f5d-b508-cdab37eb1722",
-			"responses": [
-				{
-					"id": "5061a679-7074-42bc-9849-1c001f116779",
-					"name": "all airports",
-					"status": null,
-					"mime": null,
-					"language": "json",
-					"text": "[\n    {\n        \"airportId\": 5,\n        \"name\": \"Some Airport\",\n        \"short\": \"SAP\"\n    },\n    {\n        \"airportId\": 7,\n        \"name\": \"Some Airport\",\n        \"short\": \"SAP\"\n    },\n    {\n        \"airportId\": 8,\n        \"name\": \"Some Airport\",\n        \"short\": \"SAP\"\n    },\n    {\n        \"airportId\": 6,\n        \"name\": \"Another Airport\",\n        \"short\": \"AAP\"\n    }\n]",
-					"responseCode": null,
-					"requestObject": {
-						"data": null,
-						"dataMode": null,
-						"headerData": [],
-						"method": "GET",
-						"pathVariableData": [],
-						"queryParams": [],
-						"url": "{{server}}:{{MySQL}}/api/airport/all"
-					},
-					"headers": null,
-					"cookies": null,
-					"request": "ad060056-091b-43cd-8944-1be30247d674",
-					"collection": "e307e235-250a-4c70-b91b-205898c56795"
-				}
-			],
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "c083f50d-7114-4b96-bf31-963b54ee2a6e",
-			"name": "get customer by id",
-			"url": "{{server}}:{{MySQL}}/api/customer/1",
-			"description": "",
-			"data": null,
-			"dataMode": null,
-			"headerData": [],
-			"method": "GET",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "6dcf087f-ca56-44b1-b260-3cb7164f4268",
-			"responses": [
-				{
-					"id": "dee670cb-ab52-468a-9e2b-3345d6704500",
-					"name": "get customer by id",
-					"status": "",
-					"mime": "",
-					"language": "json",
-					"text": "    {\r\n      \"customerId\": 5,\r\n      \"name\" : \"Max Musterman\",\r\n      \"phones\": [\"00491234567\", \"0038839284\"]\r\n    }",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
-					},
-					"requestObject": {
-						"url": "{{server}}:{{MySQL}}/api/customer/4",
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [],
-						"data": null,
-						"method": "GET",
-						"dataMode": null
-					},
-					"headers": [],
-					"cookies": [],
-					"request": "c083f50d-7114-4b96-bf31-963b54ee2a6e",
-					"collection": "e307e235-250a-4c70-b91b-205898c56795"
-				}
-			],
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "cb86eb60-4f23-42c5-8da5-57b70fefc341",
-			"name": "delete airport",
-			"url": "{{server}}:{{MySQL}}/api/airport/5",
-			"description": "",
-			"data": null,
-			"dataMode": null,
-			"headerData": [],
-			"method": "DELETE",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "c35eeac4-88cf-4f5d-b508-cdab37eb1722",
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "d1c9c5b1-8f6b-48ea-894e-f8af531320e2",
-			"name": "update customer",
-			"url": "{{server}}:{{MySQL}}/api/customer/1",
-			"description": "",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"name": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"type": "text"
-				}
-			],
-			"method": "POST",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "6dcf087f-ca56-44b1-b260-3cb7164f4268",
-			"responses": [
-				{
-					"id": "f5ca0d2b-aa40-4ca0-8fbe-18c1bbc8c91e",
-					"name": "update customer",
-					"status": "",
-					"mime": "",
-					"language": "json",
-					"text": "{\r\n    \"customers\":\r\n    [\r\n      {\r\n        \"customerId\": 5,\r\n        \"name\" : \"Max Musterman\",\r\n        \"phones\": [\"00491234567\", \"0038839284\"]\r\n      },\r\n      {\r\n        \"customerId\": 6,\r\n        \"name\" : \"Max Musterman\",\r\n        \"phones\": [\"00491234567\", \"0038839284\"]\r\n      },\r\n      {\r\n        \"customerId\": 7,\r\n        \"name\" : \"Max Musterman\",\r\n        \"phones\": [\"00491234567\", \"0038839284\"]\r\n      },\r\n      {\r\n        \"customerId\": 8,\r\n        \"name\" : \"Max Musterman\",\r\n        \"phones\": [\"00491234567\", \"0038839284\"]\r\n      }\r\n    ]\r\n  }",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
-					},
-					"requestObject": {
-						"url": "{{server}}:{{MySQL}}/api/customer/1",
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"data": "{\n  \"name\": \"testUpdaaate\",\n  \"phones\": [\"1234321\"]\n}",
-						"method": "POST",
-						"dataMode": "raw"
-					},
-					"headers": [],
-					"cookies": [],
-					"request": "d1c9c5b1-8f6b-48ea-894e-f8af531320e2",
-					"collection": "e307e235-250a-4c70-b91b-205898c56795"
-				}
-			],
-			"rawModeData": "{\n\t\"name\": \"testUpdaaate\",\n\t\"phones\": [\"1234321\"],\n\t\"address\": \"not at home\",\n\t\"flownMiles\": 10000\n}",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "f026267c-e82d-4484-a025-ac59fd9cc1cb",
-			"name": "delete customer",
-			"url": "{{server}}:{{MySQL}}/api/customer/4",
-			"description": "",
-			"data": null,
-			"dataMode": null,
-			"headerData": [],
-			"method": "DELETE",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "6dcf087f-ca56-44b1-b260-3cb7164f4268",
-			"responses": [
-				{
-					"id": "0668237e-fe7a-4f35-8525-076bd8a250d0",
-					"name": "delete customer",
-					"status": "",
-					"mime": "",
-					"language": "json",
-					"text": "{\n\t\"message\":\"okay\"\n}",
-					"responseCode": {
-						"code": 200,
-						"name": "OK"
-					},
-					"requestObject": {
-						"url": "{{server}}:{{MySQL}}/api/customer/4",
-						"pathVariableData": [],
-						"queryParams": [],
-						"headerData": [],
-						"data": [],
-						"method": "DELETE",
-						"dataMode": "params"
-					},
-					"headers": [],
-					"cookies": [],
-					"request": "f026267c-e82d-4484-a025-ac59fd9cc1cb",
-					"collection": "e307e235-250a-4c70-b91b-205898c56795"
-				}
-			],
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "fe4c7a2f-dd25-4836-aebd-1df827fba181",
-			"name": "cancel flight booking",
-			"url": "{{server}}:{{MySQL}}/api/booking/5",
-			"description": "",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"name": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"type": "text"
-				}
-			],
-			"method": "DELETE",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": "c35eeac4-88cf-4f5d-b508-cdab37eb1722",
-			"rawModeData": "",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
+			},
+			"response": []
 		}
 	]
 }

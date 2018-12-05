@@ -22,7 +22,7 @@
       </div>
 
       <router-view/>
-      <br>
+      <div id="spacer"></div>
 
       <v-footer height="auto" id="footer">
         <v-layout justify-center row wrap>
@@ -90,5 +90,8 @@ export default {
 #toolbar,
 #dropIcon {
   color: white;
+}
+#spacer {
+  margin-bottom: 110px;
 }
 </style>
