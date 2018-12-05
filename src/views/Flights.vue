@@ -8,6 +8,7 @@
             :items="$store.getters.airports"
             item-text="name"
             label="Select your origin"
+            item-value="airportId"
             no-data-text="Airport not found"
             persistent-hint
             prepend-icon="mdi-city"
@@ -19,6 +20,7 @@
             :items="$store.getters.airports"
             item-text="name"
             label="Select your goal"
+            item-value="airportId"
             no-data-text="Airport not found"
             persistent-hint
             prepend-icon="mdi-city"
@@ -47,8 +49,8 @@ export default {
     FlightSelect
   },
   data: () => ({
-    startAirport: "",
-    goalAirport: ""
+    startAirport: undefined,
+    goalAirport: undefined
   }),
   methods: {}
 };

@@ -60,7 +60,7 @@
                 </div>
                 <flight :flight="selected[1]" text="Remove" @selected="mode = '2'"/>
                 <br>
-                <v-btn color="primary" @click="book()">Book now</v-btn>
+                <v-btn color="primary" @click="bookFlight()">Book now</v-btn>
                 <br>
               </v-flex>
             </v-layout>
@@ -77,8 +77,8 @@ import Flight from "./FlightCard.vue";
 export default {
   name: "FlightSelect",
   props: {
-    startAirport: String,
-    goalAirport: String
+    startAirport: Number,
+    goalAirport: Number
   },
   components: {
     Flight
@@ -101,10 +101,10 @@ export default {
       this.selected = [];
       this.selected[idx] = temp;
     },
-    book() {
+    bookFlight() {
       this.selected.forEach(flight => {
         this.$store.dispatch("bookFlight", {
-          customerId: this.$store.getters.getUser.customerId,
+          customerId: (this.$store.getters.getUser || { customerId: 5 }).customerId,
           flightId: flight.flightId
         });
       });
@@ -124,8 +124,8 @@ export default {
       this.$store.dispatch(action, {
         date: this.date,
         range: 1,
-        startAirport: this.startAirport.airportId,
-        arrivalAirport: this.goalAirport.airportId
+        startAirport: this.startAirport,
+        arrivalAirport: this.goalAirport
       });
     },
     date() {

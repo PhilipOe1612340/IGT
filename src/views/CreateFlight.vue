@@ -11,24 +11,13 @@
         <v-card-title class="headline grey lighten-2" primary-title>Create a new Flight</v-card-title>
         <v-card-text>
           <v-layout row wrap>
-            <v-flex xs12 sm6 pr-2>
+            <v-flex xs12 pl-2 v-for="(airport, index) in airports" :key="airport.airportId">
               <v-autocomplete
-                class="airport"
-                v-model="start"
+                v-model="airportsList[index]"
                 :items="$store.getters.airports"
                 item-text="name"
-                label="Select start"
-                no-data-text="Airport not found"
-                persistent-hint
-              />
-            </v-flex>
-            <v-flex xs12 sm6 pl-2>
-              <v-autocomplete
-                class="airport"
-                v-model="goal"
-                :items="$store.getters.airports"
-                item-text="name"
-                label="Select goal"
+                item-value="airportId"
+                :label="`Select ${index === 0 ? 'start' : index === airports.length - 1 ? 'goal' : 'layover' }`"
                 no-data-text="Airport not found"
                 persistent-hint
               />
@@ -93,8 +82,7 @@ export default {
     menuTime: false,
     miles: 100,
     duration: 60,
-    start: null,
-    goal: null
+    airportsList: []
   }),
   methods: {
     create() {
@@ -103,12 +91,30 @@ export default {
         date: this.date,
         time: this.time,
         duration: this.duration,
-        airportsList: [this.start.airportId, this.goal.airportId]
+        airportsList: this.airportsList.filter(airport => Number.isInteger(airport))
       });
       this.dialog = false;
     }
   },
-
+  computed: {
+    airports() {
+      if (this.airportsList.length === 0) {
+        // eslint-disable-next-line
+        this.airportsList.push({ airportId: -1 });
+      }
+      if (this.airportsList.length > 2) {
+        // eslint-disable-next-line
+        this.airportsList = this.airportsList.filter(airport => Number.isInteger(airport));
+      }
+      // eslint-disable-next-line
+      const start = this.airportsList.pop();
+      // eslint-disable-next-line
+      this.airportsList.push({ airportId: -1 });
+      // eslint-disable-next-line
+      this.airportsList.push(start);
+      return this.airportsList;
+    }
+  }
 };
 </script>
 
